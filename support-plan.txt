@@ -1,0 +1,22 @@
+Query and Html
+ - test endpoints
+ - target styling or crawling
+ - Security and flexiblity in one
+Robots.txt
+Add rotating proxies
+Body size limiter
+Decouple UI and Backend API so users can run the gui version or just use the sdk for their own implemntation
+Actor based backend (think in layers)
+Rate Limiting tests for spam
+SEO-conscious (allow browser crawlers but not generic crawlers like others)
+Plugin custom token logic or use predefined token cracks to test security
+Bring clarity to the public area of what can be seen
+Containerize
+package options:
+    - scraper
+    - crawler
+    - gui connected to backend
+    - token-cracker:
+        - is it the token simple enough to crack and not verified in db?
+    - multiple sites, multiple controllers
+    - choose data export format, give option for scraper to output data to page, add a tail to databse etc

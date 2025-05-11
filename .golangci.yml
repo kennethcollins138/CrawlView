@@ -1,0 +1,59 @@
+linters:
+  disable-all: true
+  enable:
+    - govet
+    - errcheck
+    - staticcheck
+    - ineffassign
+    - typecheck
+    - unused
+    - goconst
+    - gofmt
+    - gocritic
+    - gocyclo
+    - misspell
+
+linters-settings:
+  govet:
+    shadow: true
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+  staticcheck:
+    checks: [ "all" ]
+  gocyclo:
+    min-complexity: 20
+  gofmt: { }  # No need for simplify: true here
+  misspell:
+    locale: US
+
+run:
+  tests: false  # Set to true if you want tests to be linted as well
+  concurrency: 4
+  timeout: 5m
+
+issues:
+  min-confidence: 0.8
+  exclude-rules:
+    - linters:
+        - errcheck
+      text: "Error return value is not checked"
+  exclude-dirs:
+    - vendor
+    - third_party
+    - mocks
+    - test
+    - scripts
+  exclude-files:
+    - ".*_generated\\.go$"
+    - ".*_test\\.go$"
+    - ".*\\.pb\\.go$"
+    - ".*_mock\\.go$"
+    - ".*mock_*\\.go"
+cache:
+  enabled: true
+
+output:
+  formats: colored-line-number
+
+version: "1.24"
